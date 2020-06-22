@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Form = props =>
+const SignUpForms = props =>
     
     <form>
         <label>FirstName :    &nbsp; 
@@ -15,8 +15,7 @@ const Form = props =>
                 type='text'
                 name='lname'
                 placeholder='LastName'
-            />
-            
+            /> 
         </label>
         
 

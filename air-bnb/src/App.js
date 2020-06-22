@@ -1,8 +1,8 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Message from './component/MessageComponent'
-import Form from './component/FormComponent'
+import SignUpForm from './component/SignUpForm'
+
+
 
 function App() {
   return (

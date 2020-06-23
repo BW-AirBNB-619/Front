@@ -7,6 +7,7 @@ import SignUpForm from './component/SignUpForm';
 import formSchema from './validate/formSchema'
 
 
+
 const initialSignUpForm = {
   name: '',
   username: '',
@@ -51,7 +52,7 @@ const getNewUsers = () =>{
       setUsers([...users, res.data])
     })
     .catch(err =>{
-      console.log(err)
+
     })
     .finally(()=>{
       setSignUpFormValues(initialSignUpForm)
@@ -82,9 +83,9 @@ const getNewUsers = () =>{
 
   const onSubmit = event =>{
     event.preventDefault();
-
     const newUsers = {
-      ...signUpFromValues,      
+      ...signUpFromValues,    
+      
     }
     postNewUsers(newUsers)
   }
@@ -109,12 +110,13 @@ const getNewUsers = () =>{
 
   return (
     <div className="App">
+   
       <header className="App-header">
         <h3>AirBnB user Register</h3>
-        <div>
-          <NavLink className='home-link' to='https://bw-airbnb-619.netlify.app/'>Home</NavLink>
+        <div className='link-contain'>
+          <NavLink className='home-link' to='/https://www.airbnb.com/s/all?refinement_paths%5B%5D=%2Ffor_you&lat=39.9393633&lng=-82.9178733&search_type=autosuggest'>Home</NavLink>
           <NavLink className='signUp-link' to='/sign-up'>Sign Up</NavLink>
-          {/* <NavLink className='signUp-link' to='/log-in'>Log in</NavLink> */}
+          <NavLink className='signUp-link' to='https://bw-airbnb-619.netlify.app/'>Log in</NavLink>
 
         </div>
        
@@ -123,17 +125,18 @@ const getNewUsers = () =>{
         <Route path='/sign-up'>
        <SignUpForm 
           values={signUpFromValues}
-          onSubmit={onSubmit}
+          onSubmit={onSubmit}z
           onSignUpChange={onSignUpChange}
           onCheckChange={onCheckChange}
           disabled={disabled}
           errors={formErrors}    
-         
           
         />
         </Route>
-       </Switch> 
-    </div>
+       </Switch>  
+     
+    </div> 
+   
   );
 }
 

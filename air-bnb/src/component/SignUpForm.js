@@ -1,4 +1,6 @@
 import React from 'react'
+import Containstyle from './formstyle'
+import SmallDiv from './smalldiv'
 
 function SignUpForm (props) {
 
@@ -15,9 +17,11 @@ function SignUpForm (props) {
  return (
 
      <form className="user-form" onSubmit={onSubmit}>
-        <div className='signUp-form'>
-            <div className='name-input-form'>
-            <label>Name
+        {/* <div className='signUp-form'> */}
+        <Containstyle>
+            {/* <div className='name-input-form'> */}
+            <SmallDiv>
+            <label htmlFor='name'>Name
             <div className='name-input' >
                   <input 
                     type='text'
@@ -30,10 +34,11 @@ function SignUpForm (props) {
                 />
             </div>  
             </label>
-        </div>
-            <div>
-            <label> Username 
-                <div>
+            </SmallDiv>
+        {/* </div> */}
+            <div className='username-input-form'>
+            <label htmlFor='username'> Username 
+                <div className='username-input'>
                     <input 
                     type='text'
                     name='username'
@@ -45,12 +50,12 @@ function SignUpForm (props) {
                  
             </label>
             </div>
-            <div>
-            <label> 
-                <div>
+            <div className='email-input-form'>
+            <label htmlFor='email'> 
+                <div className='email-input-formname'>
                     Email 
                 </div>   
-                <div>
+                <div className='email-input'>
                   <input 
                     type='email'
                     name='email'
@@ -61,9 +66,9 @@ function SignUpForm (props) {
                 </div>
             </label>
             </div>
-            <div>
-            <label>Password 
-                <div>
+            <div className='password-input-form'>
+            <label htmlFor='password'>Password 
+                <div className='password-input'>
                   <input 
                     type='password'
                     name='password'
@@ -74,18 +79,19 @@ function SignUpForm (props) {
                 </div>
             </label>
             </div>
-            <div>
-                <label>BirthDate
-                    <div>
+            <div className='birthdate-input-form'>
+                <label htmlFor='birthdate'>BirthDate
+                    <div className='birthdate-input'>
                         <input
                             type='date'
                             name='birthdate'
                             onChange={onSignUpChange}
+                            value={values.birthdate}
                             placeholder='mm/dd/yyyy'
                         />
                     </div>
                 </label>
-                <label>Terms of service
+                <label htmlFor='term'>Terms of service
                  
                         <input
                             type='checkbox'
@@ -107,8 +113,8 @@ function SignUpForm (props) {
             </div>
            
             
-        </div> 
-           
+        {/* </div>  */}
+       </Containstyle>    
     </form>
 
  ) 

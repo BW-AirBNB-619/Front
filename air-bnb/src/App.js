@@ -112,6 +112,7 @@ const getNewUsers = () =>{
     <div className="App">
    
       <header className="App-header">
+
         <h3>AirBnB user Register</h3>
         <div className='link-contain'>
           <NavLink className='home-link' to='/exam'>Home</NavLink>
@@ -119,13 +120,13 @@ const getNewUsers = () =>{
           <NavLink className='signUp-link' to='/log-in'>Log in</NavLink>
 
         </div>
-       
+ 
       </header>
       <Switch>
         <Route path='/sign-up'>
        <SignUpForm 
           values={signUpFromValues}
-          onSubmit={onSubmit}z
+          onSubmit={onSubmit}
           onSignUpChange={onSignUpChange}
           onCheckChange={onCheckChange}
           disabled={disabled}

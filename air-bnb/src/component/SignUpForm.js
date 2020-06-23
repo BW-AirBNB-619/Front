@@ -13,14 +13,12 @@ function SignUpForm (props) {
         disabled,
     } = props
 
-
  return (
 
      <form className="user-form" onSubmit={onSubmit}>
-        {/* <div className='signUp-form'> */}
+        
         <Containstyle>
-            {/* <div className='name-input-form'> */}
-            <SmallDiv>
+            <div className='name-input-form'>
             <label htmlFor='name'>Name
             <div className='name-input' >
                   <input 
@@ -30,12 +28,13 @@ function SignUpForm (props) {
                     value={values.name}
                     onChange={onSignUpChange}
                     placeholder='FirstName-LastName'
-                    
+                    size='40'
+      
                 />
             </div>  
             </label>
-            </SmallDiv>
-        {/* </div> */}
+          
+        </div>
             <div className='username-input-form'>
             <label htmlFor='username'> Username 
                 <div className='username-input'>
@@ -45,6 +44,7 @@ function SignUpForm (props) {
                     value={values.username}
                     onChange={onSignUpChange}
                     placeholder='username'
+                    size='40'
                 />
                 </div>
                  
@@ -62,6 +62,7 @@ function SignUpForm (props) {
                     value={values.email}
                     onChange={onSignUpChange}
                     placeholder='example@example.com'
+                    size='40'
                 />   
                 </div>
             </label>
@@ -75,6 +76,7 @@ function SignUpForm (props) {
                     value={values.password}
                     onChange={onSignUpChange}
                     placeholder='Password'
+                    size='40'
                 />   
                 </div>
             </label>

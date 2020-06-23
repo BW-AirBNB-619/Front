@@ -114,9 +114,9 @@ const getNewUsers = () =>{
       <header className="App-header">
         <h3>AirBnB user Register</h3>
         <div className='link-contain'>
-          <NavLink className='home-link' to='/https://www.airbnb.com/s/all?refinement_paths%5B%5D=%2Ffor_you&lat=39.9393633&lng=-82.9178733&search_type=autosuggest'>Home</NavLink>
+          <NavLink className='home-link' to='/exam'>Home</NavLink>
           <NavLink className='signUp-link' to='/sign-up'>Sign Up</NavLink>
-          <NavLink className='signUp-link' to='https://bw-airbnb-619.netlify.app/'>Log in</NavLink>
+          <NavLink className='signUp-link' to='/log-in'>Log in</NavLink>
 
         </div>
        
@@ -133,6 +133,15 @@ const getNewUsers = () =>{
           
         />
         </Route>
+        <Route path='/exam' component={()=>{
+          window.location.href = 'https://www.airbnb.com/s/all?refinement_paths%5B%5D=%2Ffor_you&lat=39.9393633&lng=-82.9178733&search_type=autosuggest';
+           return null;
+        }} />
+
+        <Route path='/log-in' component={()=>{
+          window.location.href = 'https://front.airbnb-op.vercel.app/';
+           return null;
+        }} />
        </Switch>  
      
     </div> 

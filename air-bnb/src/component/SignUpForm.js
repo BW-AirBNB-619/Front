@@ -1,16 +1,109 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import FormStyle from "./Styles/FormStyle";
 import { Link } from "react-router-dom";
+import {axiosWithAuth} from "./component"
+import formSchema from "./validate/formSchema";
+import * as Yup from "yup";
+
+
+const initialSignUpForm = {
+  name: "",
+  username: "",
+  email: "",
+  password: "",
+  birthdate: "",
+  term: false,
+};
+
+const initialErrors = {
+  name: "",
+  username: "",
+  email: "",
+  password: "",
+  birthdate: "",
+  term: "",
+};
+const initialDisabled = true;
+
 
 function SignUpForm(props) {
-  const {
-    values,
-    onSubmit,
-    onSignUpChange,
-    onCheckChange,
-    errors,
-    disabled,
-  } = props;
+  const [users, setUsers] = useState([]);
+  const [signUpFromValues, setSignUpFormValues] = useState(initialSignUpForm);
+  const [formErrors, setFormErrors] = useState(initialErrors);
+  const [disabled, setDisabled] = useState(initialDisabled);
+
+  const getNewUsers = () => {
+    axiosWithAuth()
+      .get("/api/users")
+      .then((res) => {
+        setUsers(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const postNewUsers = (newUsers) => {
+    axiosWithAuth()
+      .post("/api/users", newUsers)
+      .then((res) => {
+        console.log(res.data);
+        setUsers([...users, res.data])
+        window.localStorage.setItem("token", res.data.payload);
+            props.history.push("/dashboard");
+      })
+      .catch((err) => {})
+      .finally(() => {
+        setSignUpFormValues(initialSignUpForm);
+      });
+  };
+  const onSignUpChange = (event) => {
+    const { name, value } = event.target;
+    Yup.reach(formSchema, name)
+      .validate(value)
+      .then(() => {
+        setFormErrors({
+          ...formErrors,
+          [name]: "",
+        });
+      })
+      .catch((err) => {
+        setFormErrors({
+          ...formErrors,
+          [name]: err.errors[0],
+        });
+      });
+    setSignUpFormValues({
+      ...signUpFromValues,
+      [name]: value,
+    });
+  };
+
+  const onSubmit = (event) => {
+    event.preventDefault();
+    const newUsers = {
+      ...signUpFromValues,
+    };
+    postNewUsers(newUsers);
+  };
+
+  const onCheckChange = (event) => {
+    const { name, checked } = event.target;
+
+    setSignUpFormValues({
+      ...signUpFromValues,
+      [name]: checked,
+    });
+  };
+  useEffect(() => {
+    getNewUsers();
+  }, []);
+
+  useEffect(() => {
+    formSchema.isValid(signUpFromValues).then((valid) => {
+      setDisabled(!valid);
+    });
+  }, [signUpFromValues]);
 
   return (
     <FormStyle>

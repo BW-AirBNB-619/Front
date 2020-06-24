@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import FormStyle from "./Styles/FormStyle";
 import Axios from "axios";
+import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 const initialFormValues = {
   name: "",
@@ -24,8 +25,11 @@ function SignInForm(props) {
   };
 
   const postUser = (newUser) => {
-    Axios.post("https://reqres.in/api/users", newUser)
+    axiosWithAuth()
+      .post("/api/users", newUser)
       .then((res) => {
+        window.localStorage.setItem("token", res.data.payload);
+            props.history.push("/dashboard")
         console.log(res.data);
       })
       .catch((err) => {

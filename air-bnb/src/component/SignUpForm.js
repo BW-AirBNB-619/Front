@@ -25,12 +25,13 @@ function SignUpForm(props) {
                 maxLength="100"
                 value={values.name}
                 onChange={onSignUpChange}
-                placeholder="FirstName-LastName"
+                placeholder="name"
                 size="40"
               />
             </div>
           </label>
         </div>
+        <br />
         <div className="username-input-form">
           <label htmlFor="username">
             {" "}
@@ -47,6 +48,7 @@ function SignUpForm(props) {
             </div>
           </label>
         </div>
+        <br />
         <div className="email-input-form">
           <label htmlFor="email">
             <div className="email-input-formname">
@@ -64,6 +66,7 @@ function SignUpForm(props) {
             </div>
           </label>
         </div>
+        <br />
         <div className="password-input-form">
           <label htmlFor="password">
             <h3>Password</h3>
@@ -79,9 +82,10 @@ function SignUpForm(props) {
             </div>
           </label>
         </div>
+        <br />
         <div className="birthdate-input-form">
           <label htmlFor="birthdate">
-            <h3>BirthDate</h3>
+            <h3>Birth Date</h3>
             <div className="birthdate-input">
               <input
                 type="date"
@@ -91,9 +95,10 @@ function SignUpForm(props) {
                 placeholder="mm/dd/yyyy"
               />
             </div>
+            <br />
           </label>
           <label htmlFor="term">
-            <h3>Terms of service</h3>
+            <h3>Terms of Service</h3>
             <input
               type="checkbox"
               name="term"
@@ -102,13 +107,14 @@ function SignUpForm(props) {
             />
           </label>
         </div>
+        <br />
         <div className="error-container">
-          <button disabled={disabled}>Agree and continue</button>
           <div> {errors.name} </div>
           <div> {errors.username} </div>
           <div> {errors.email} </div>
           <div> {errors.password} </div>
           <div> {errors.term} </div>
+          <button disabled={disabled}>Sign Up!</button>
         </div>
         <br />
         <Link to="/log-in">

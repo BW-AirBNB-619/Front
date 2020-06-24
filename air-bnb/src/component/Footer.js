@@ -6,9 +6,8 @@ const FooterNav = () => {
   return (
     <Footer>
       <footer className="footerNav">
-        <h1>AirBnB Pricing Tool for New York City</h1>
         <div className="link-contain">
-          <NavLink to="/">Log out</NavLink>
+          <NavLink to="/marketing">Marketing Website</NavLink>
         </div>
       </footer>
     </Footer>

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 
 const FormStyle = styled(motion.form)`
-  min-width: 35%;
+  min-width: 60%;
   min-height: 250px;
   margin: auto;
   padding: 10%;
@@ -12,12 +12,13 @@ const FormStyle = styled(motion.form)`
   justify-content: center;
   color: ${(props) => props.theme.colors.red};
   background-color: white;
-  box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.45);
+  box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.45);
   border-radius: 10px;
-  border: 2px solid ${(props) => props.theme.colors.darkGreen};
+  border: 1px solid ${(props) => props.theme.colors.darkGreen};
   padding: 5% 0;
   line-height: 1.8;
   font-size: ${(props) => props.theme.fontSizes.small};
+  box-sizing: border-box;
 
   form {
     display: flex;
@@ -29,15 +30,49 @@ const FormStyle = styled(motion.form)`
 
   h3 {
     font-size: ${(props) => props.theme.fontSizes.body};
+    color: ${(props) => props.theme.colors.darkGreen};
+    text-shadow: 0px 0px 5px ${(props) => props.theme.colors.lightGreen};
     letter-spacing: 0.1rem;
-    font-weight: bolder;
+    font-weight: bold;
   }
 
   input,
-  button,
   a {
     font-size: ${(props) => props.theme.fontSizes.body};
+    color: ${(props) => props.theme.colors.medGreen};
     text-align: center;
+  }
+
+  button {
+    font-size: ${(props) => props.theme.fontSizes.body};
+    color: ${(props) => props.theme.colors.medGreen};
+    background-color: ${(props) => props.theme.colors.white};
+    text-align: center;
+    padding: 5px 10px;
+    border: 1px solid ${(props) => props.theme.colors.medGreen};
+    border-radius: 5px;
+    text-shadow: 0px 0px 0px ${(props) => props.theme.colors.white};
+    box-shadow: 0px 0px 2px ${(props) => props.theme.colors.darkGreen};
+    font-weight: bold;
+
+    :hover {
+      transform: scale(1.1);
+      color: ${(props) => props.theme.colors.white};
+      background-color: ${(props) => props.theme.colors.medGreen};
+      border: 1px solid ${(props) => props.theme.colors.white};
+      text-shadow: 0px 0px 0px ${(props) => props.theme.colors.white};
+      box-shadow: 0px 0px 2px ${(props) => props.theme.colors.darkGreen};
+    }
+  }
+
+  .user-form {
+    margin: 0% 10%;
+    box-sizing: border-box;
+  }
+
+  .error-container {
+    font-size: ${(props) => props.theme.fontSizes.titleThree};
+    color: ${(props) => props.theme.colors.red};
   }
 `;
 export default FormStyle;

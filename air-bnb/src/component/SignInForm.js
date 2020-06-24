@@ -75,6 +75,7 @@ function SignInForm(props) {
             </div>
           </label>
         </div>
+        <br />
         <div className="password-input-form">
           <label htmlFor="password">
             <h3>Password</h3>
@@ -90,6 +91,7 @@ function SignInForm(props) {
             </div>
           </label>
         </div>
+        <br />
         <button disabled={disabled}>Sign In</button>
         <br />
         <Link to="/sign-up">Don't have an account? Click here to sign up!</Link>

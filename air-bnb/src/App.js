@@ -52,7 +52,7 @@ const getNewUsers = () =>{
       setUsers([...users, res.data])
     })
     .catch(err =>{
-
+    
     })
     .finally(()=>{
       setSignUpFormValues(initialSignUpForm)
@@ -135,7 +135,7 @@ const getNewUsers = () =>{
         />
         </Route>
         <Route path='/exam' component={()=>{
-          window.location.href = 'https://www.airbnb.com/s/all?refinement_paths%5B%5D=%2Ffor_you&lat=39.9393633&lng=-82.9178733&search_type=autosuggest';
+          window.location.href = 'https://bw-airbnb-619.netlify.app/team/team.html';
            return null;
         }} />
 

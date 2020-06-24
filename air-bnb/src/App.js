@@ -1,13 +1,18 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {Hello} from './component/hello'
+import Dashboard from './component/Dashboard'
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import PrivateRoute from "./component/PrivateRoute"
 
 function App() {
   return (
-    <div className="App">
-     <Hello />
-    </div>
+    <Router>
+      <div className="App">
+        {/* <Route exact path="/" component={Login} /> */}
+        <PrivateRoute exact path="/dashboard" component={Dashboard} />
+      </div>
+    </Router>
   );
 }
 

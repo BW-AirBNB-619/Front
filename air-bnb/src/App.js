@@ -1,30 +1,28 @@
-
 import Dashboard from './component/Dashboard'
-
 import PrivateRoute from "./component/PrivateRoute"
-import React, { useState, useEffect } from "react";
-import { Switch, Route, Link, NavLink } from "react-router-dom";
+import React from "react";
+import { Switch, Route, NavLink} from "react-router-dom";
 import "./App.css";
 import SignInForm from "./component/SignInForm";
+import SignUpForm from './component/SignUpForm';
 import HeaderNav from "./component/Header";
 import FooterNav from "./component/Footer";
 import AppContainer from "./component/Styles/AppContainerStyles";
 import BodyContainer from "./component/Styles/BodyContainerStyles";
 
 
+
 function App() {
 
-
   return (
-
+   
     <AppContainer>
       <HeaderNav />
-
       <BodyContainer>
         <Switch>
-          {/* <Route path="/sign-up">
+          <Route path="/sign-up">
             <SignUpForm />
-          </Route> */}
+          </Route>
           <Route
             path="/marketing"
             component={() => {
@@ -33,7 +31,6 @@ function App() {
               return null;
             }}
           />
-
           <Route path="/">
             <SignInForm />
           </Route>

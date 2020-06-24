@@ -5,8 +5,11 @@ import * as Yup from "yup";
 import axios from "axios";
 import SignUpForm from "./component/SignUpForm";
 import formSchema from "./validate/formSchema";
-import { Header } from "./component/Styles/Styles";
 import SignInForm from "./component/SignInForm";
+import HeaderNav from "./component/Header";
+import FooterNav from "./component/Footer";
+import AppContainer from "./component/Styles/AppContainerStyles";
+import BodyContainer from "./component/Styles/BodyContainerStyles";
 
 const initialSignUpForm = {
   name: "",
@@ -104,46 +107,38 @@ function App() {
   }, [signUpFromValues]);
 
   return (
-    <div className="App">
-      <Header>
-        <h1>AirBnB Pricing Tool for New York City</h1>
-        <div className="link-contain">
-          <NavLink className="home-link" to="/exam">
-            Home
-          </NavLink>
-          <NavLink className="signUp-link" to="/sign-up">
-            Sign Up
-          </NavLink>
-          <NavLink className="signUp-link" to="/log-in">
-            Log in
-          </NavLink>
-        </div>
-      </Header>
-      <Switch>
-        <Route path="/sign-up">
-          <SignUpForm
-            values={signUpFromValues}
-            onSubmit={onSubmit}
-            onSignUpChange={onSignUpChange}
-            onCheckChange={onCheckChange}
-            disabled={disabled}
-            errors={formErrors}
-          />
-        </Route>
-        <Route
-          path="/exam"
-          component={() => {
-            window.location.href =
-              "https://www.airbnb.com/s/all?refinement_paths%5B%5D=%2Ffor_you&lat=39.9393633&lng=-82.9178733&search_type=autosuggest";
-            return null;
-          }}
-        />
+    <AppContainer>
+      <HeaderNav />
 
-        <Route path="/log-in">
-          <SignInForm />
-        </Route>
-      </Switch>
-    </div>
+      <BodyContainer>
+        <Switch>
+          <Route path="/sign-up">
+            <SignUpForm
+              values={signUpFromValues}
+              onSubmit={onSubmit}
+              onSignUpChange={onSignUpChange}
+              onCheckChange={onCheckChange}
+              disabled={disabled}
+              errors={formErrors}
+            />
+          </Route>
+          <Route
+            path="/exam"
+            component={() => {
+              window.location.href =
+                "https://www.airbnb.com/s/all?refinement_paths%5B%5D=%2Ffor_you&lat=39.9393633&lng=-82.9178733&search_type=autosuggest";
+              return null;
+            }}
+          />
+
+          <Route path="/log-in">
+            <SignInForm />
+          </Route>
+        </Switch>
+      </BodyContainer>
+
+      <FooterNav />
+    </AppContainer>
   );
 }
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Containstyle from "./Styles/formstyle";
+import FormStyle from "./Styles/FormStyle";
 import Axios from "axios";
 
 const initialFormValues = {
@@ -56,8 +56,8 @@ function SignInForm(props) {
   }, [formValues]);
 
   return (
-    <form className="user-form" onSubmit={onSubmit}>
-      <Containstyle>
+    <FormStyle>
+      <form className="user-form" onSubmit={onSubmit}>
         <div className="email-input-form">
           <label htmlFor="email">
             <div className="email-input-formname">
@@ -93,8 +93,8 @@ function SignInForm(props) {
         <button disabled={disabled}>Sign In</button>
         <br />
         <Link to="/sign-up">Don't have an account? Click here to sign up!</Link>
-      </Containstyle>
-    </form>
+      </form>
+    </FormStyle>
   );
 }
 

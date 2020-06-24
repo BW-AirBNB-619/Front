@@ -1,7 +1,6 @@
 import React from "react";
-import Containstyle from "./Styles/formstyle";
+import FormStyle from "./Styles/FormStyle";
 import { Link } from "react-router-dom";
-import SmallDiv from "./Styles/smalldiv";
 
 function SignUpForm(props) {
   const {
@@ -14,11 +13,11 @@ function SignUpForm(props) {
   } = props;
 
   return (
-    <form className="user-form" onSubmit={onSubmit}>
-      <Containstyle>
+    <FormStyle>
+      <form className="user-form" onSubmit={onSubmit}>
         <div className="name-input-form">
           <label htmlFor="name">
-            Name
+            <h3>Name</h3>
             <div className="name-input">
               <input
                 type="text"
@@ -35,7 +34,7 @@ function SignUpForm(props) {
         <div className="username-input-form">
           <label htmlFor="username">
             {" "}
-            Username
+            <h3>Username</h3>
             <div className="username-input">
               <input
                 type="text"
@@ -50,7 +49,9 @@ function SignUpForm(props) {
         </div>
         <div className="email-input-form">
           <label htmlFor="email">
-            <div className="email-input-formname">Email</div>
+            <div className="email-input-formname">
+              <h3>Email</h3>
+            </div>
             <div className="email-input">
               <input
                 type="email"
@@ -65,7 +66,7 @@ function SignUpForm(props) {
         </div>
         <div className="password-input-form">
           <label htmlFor="password">
-            Password
+            <h3>Password</h3>
             <div className="password-input">
               <input
                 type="password"
@@ -80,7 +81,7 @@ function SignUpForm(props) {
         </div>
         <div className="birthdate-input-form">
           <label htmlFor="birthdate">
-            BirthDate
+            <h3>BirthDate</h3>
             <div className="birthdate-input">
               <input
                 type="date"
@@ -92,7 +93,7 @@ function SignUpForm(props) {
             </div>
           </label>
           <label htmlFor="term">
-            Terms of service
+            <h3>Terms of service</h3>
             <input
               type="checkbox"
               name="term"
@@ -113,10 +114,8 @@ function SignUpForm(props) {
         <Link to="/log-in">
           Already have an account? Click here to sign in!
         </Link>
-
-        {/* </div>  */}
-      </Containstyle>
-    </form>
+      </form>
+    </FormStyle>
   );
 }
 

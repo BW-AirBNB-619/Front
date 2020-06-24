@@ -11,7 +11,7 @@ export default {
     titleOne: "4.4rem",
     titleTwo: "3.2rem",
     titleThree: "2.4rem",
-    body: "1.7rem",
+    body: "1.2rem",
     small: "1.0rem",
   },
   fonts: {

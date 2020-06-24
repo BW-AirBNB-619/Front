@@ -5,14 +5,14 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter as Router } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
-import GlobalStyles from "./component/Styles/GlobalStyles";
-import Theme from "./component/Styles/theme";
+import GlobalStyle from "./component/Styles/GlobalStyles";
+import Theme from "./component/Styles/ThemeStyle";
 
 ReactDOM.render(
   <Router>
     <React.StrictMode>
       <ThemeProvider theme={Theme}>
-        <GlobalStyles />
+        <GlobalStyle />
         <App />
       </ThemeProvider>
     </React.StrictMode>

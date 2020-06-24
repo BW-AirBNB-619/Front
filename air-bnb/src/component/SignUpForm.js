@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import FormStyle from "./Styles/FormStyle";
 import { Link } from "react-router-dom";
-import {axiosWithAuth} from "./component"
-import formSchema from "./validate/formSchema";
+import { axiosWithAuth } from "../utils/axiosWithAuth";
+import formSchema from "../validate/formSchema";
 import * as Yup from "yup";
 
 
@@ -27,10 +27,12 @@ const initialDisabled = true;
 
 
 function SignUpForm(props) {
+  
   const [users, setUsers] = useState([]);
   const [signUpFromValues, setSignUpFormValues] = useState(initialSignUpForm);
   const [formErrors, setFormErrors] = useState(initialErrors);
   const [disabled, setDisabled] = useState(initialDisabled);
+
 
   const getNewUsers = () => {
     axiosWithAuth()
@@ -116,7 +118,7 @@ function SignUpForm(props) {
                 type="text"
                 name="name"
                 maxLength="100"
-                value={values.name}
+                value={signUpFromValues.name}
                 onChange={onSignUpChange}
                 placeholder="name"
                 size="40"
@@ -133,7 +135,7 @@ function SignUpForm(props) {
               <input
                 type="text"
                 name="username"
-                value={values.username}
+                value={signUpFromValues.username}
                 onChange={onSignUpChange}
                 placeholder="username"
                 size="40"
@@ -151,7 +153,7 @@ function SignUpForm(props) {
               <input
                 type="email"
                 name="email"
-                value={values.email}
+                value={signUpFromValues.email}
                 onChange={onSignUpChange}
                 placeholder="example@example.com"
                 size="40"
@@ -167,7 +169,7 @@ function SignUpForm(props) {
               <input
                 type="password"
                 name="password"
-                value={values.password}
+                value={signUpFromValues.password}
                 onChange={onSignUpChange}
                 placeholder="Password"
                 size="40"
@@ -184,7 +186,7 @@ function SignUpForm(props) {
                 type="date"
                 name="birthdate"
                 onChange={onSignUpChange}
-                value={values.birthdate}
+                value={signUpFromValues.birthdate}
                 placeholder="mm/dd/yyyy"
               />
             </div>
@@ -194,19 +196,19 @@ function SignUpForm(props) {
             <h3>Terms of Service</h3>
             <input
               type="checkbox"
-              name="term"
-              checked={values.term}
+              name='term'
+              checked={signUpFromValues.term}
               onChange={onCheckChange}
             />
           </label>
         </div>
         <br />
         <div className="error-container">
-          <div> {errors.name} </div>
-          <div> {errors.username} </div>
-          <div> {errors.email} </div>
-          <div> {errors.password} </div>
-          <div> {errors.term} </div>
+          <div> {formErrors.name} </div>
+          <div> {formErrors.username} </div>
+          <div> {formErrors.email} </div>
+          <div> {formErrors.password} </div>
+          <div> {formErrors.term} </div>
           <button disabled={disabled}>Sign Up!</button>
         </div>
         <br />

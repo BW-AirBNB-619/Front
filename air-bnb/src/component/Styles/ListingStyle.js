@@ -26,6 +26,7 @@ const ListingStyle = styled.div`
     flex-wrap: wrap;
     justify-content: center;
     padding: 25px;
+    max-width: 450px;
 
     .button-row {
       align-self: baseline;
@@ -50,7 +51,7 @@ const ListingStyle = styled.div`
     text-shadow: 0px 0px 0px ${(props) => props.theme.colors.white};
     box-shadow: 0px 0px 2px ${(props) => props.theme.colors.darkGreen};
     font-weight: bold;
-    margin: 5px;
+    margin: 15px;
 
     :hover {
       transform: scale(1.1);

@@ -11,8 +11,13 @@ const ListingStyle = styled.div`
   box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.45);
   border-radius: 10px;
   padding: 5%;
-  margin: 5%;
+  margin: 5% auto;
   line-height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 550px;
+  max-width: 7500px;
 
   .listing-span {
     h4 {

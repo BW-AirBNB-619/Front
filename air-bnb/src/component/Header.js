@@ -9,7 +9,7 @@ const HeaderNav = () => {
         <h1>AirBnB Price Predictor - New York City</h1>
         <div className="link-contain">
           <NavLink to="/sign-up">Sign Up</NavLink>
-          <NavLink to="/log-in">Log In</NavLink>
+          <NavLink to="/sign-in">Log In</NavLink>
           <NavLink to="/log-out">Log out</NavLink>
         </div>
       </header>

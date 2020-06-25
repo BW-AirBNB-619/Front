@@ -1,7 +1,9 @@
 .App {
   text-align: center;
 }
-
+.delete {
+  color: rgb(216, 87, 87);
+}
 /* .App-header {
   background-color: #282c34;
   min-height: 10vh;

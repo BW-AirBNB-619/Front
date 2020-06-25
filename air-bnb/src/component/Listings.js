@@ -171,35 +171,65 @@ export const Listings = () => {
                         />
                     </label>
                     <div className="button-row">
-                        <button type="submit">save</button>
+                        <button type="submit">Save</button>
                         <button onClick={() => setEditing(false)}>cancel</button>
                     </div>
                 </form>
             )}
             <form onSubmit={addListing}>
+                <legend>New Listing</legend>
                 <input
                     name="name"
                     type="text"
                     value={formData.name}
                     onChange={handleChanges}
-                    placeholder="Add new name"
+                    placeholder="Name"
                 />
-                <input
-                    name="location"
-                    type="text"
-                    value={formData.location}
-                    onChange={handleChanges}
-                    placeholder="Add location"
-                />
+                
                 <input
                     name="bedrooms"
                     type="number"
                     value={formData.bedrooms}
                     onChange={handleChanges}
-                    placeholder="Add bedrooms"
+                    placeholder="Bedrooms"
+                />
+                <input
+                    name="neighbourhood"
+                    type="text"
+                    value={formData.neighbourhood}
+                    onChange={handleChanges}
+                    placeholder="Neighbourhood"
+                />
+                <input
+                    name="roomtype"
+                    type="text"
+                    value={formData.roomtype}
+                    onChange={handleChanges}
+                    placeholder="Room Tpye"
+                />
+                <input
+                    name="minimumnights"
+                    type="number"
+                    value={formData.minimumnights}
+                    onChange={handleChanges}
+                    placeholder="Minimum Nights"
+                />
+                <input
+                    name="numberofreviews"
+                    type="number"
+                    value={formData.numberofreviews}
+                    onChange={handleChanges}
+                    placeholder="Number of reviews"
+                />
+                <input
+                    name="price"
+                    type="number"
+                    value={formData.minimumnights}
+                    onChange={handleChanges}
+                    placeholder="Price"
                 />
                 <button>
-                    New Listing
+                    Add Listing
                     </button>
             </form>
         </div>

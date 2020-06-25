@@ -31,10 +31,10 @@ function App() {
               return null;
             }}
           />
-          <Route path="/">
+          <Route path="/sign-in">
             <SignInForm />
           </Route>
-          <PrivateRoute exact path="/dashboard" component={Dashboard} />
+          <PrivateRoute path="/dashboard" component={Dashboard} />
         </Switch>
       </BodyContainer>
 

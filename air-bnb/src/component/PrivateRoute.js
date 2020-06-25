@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Redirect } from "react-router-dom";
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
-    const token = window.localStorage.getItem("token");
+    const token = window.localStorage.getItem("access_token");
     return (
         <Route
             {...rest}
@@ -12,7 +12,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
                     return <Component {...props} />;
                 } else {
 
-                    return <Redirect to="/" />;
+                    return <Redirect to="/sign-in" />;
                 }
             }}
         />

@@ -1,13 +1,13 @@
 import axios from "axios";
-import { animationControls } from "framer-motion";
+
 
 const axiosWithAuth = () => {
-    const token = window.localStorage.getItem("token");
+    const token = window.localStorage.getItem("access_token");
     return axios.create({
         headers: {
-            authorization: token
+            authorization: `Bearer ${window.localStorage.getItem("access_token")}`
         },
-        baseURL: "http://localhost:5000/"
+
     });
 };
 

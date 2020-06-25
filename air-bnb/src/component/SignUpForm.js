@@ -7,21 +7,19 @@ import * as Yup from "yup";
 
 
 const initialSignUpForm = {
-  name: "",
+  
   username: "",
   email: "",
   password: "",
-  birthdate: "",
-  term: false,
+  
 };
 
 const initialErrors = {
-  name: "",
+  
   username: "",
   email: "",
   password: "",
-  birthdate: "",
-  term: "",
+  
 };
 const initialDisabled = true;
 
@@ -89,14 +87,9 @@ function SignUpForm(props) {
     postNewUsers(newUsers);
   };
 
-  const onCheckChange = (event) => {
-    const { name, checked } = event.target;
+  
 
-    setSignUpFormValues({
-      ...signUpFromValues,
-      [name]: checked,
-    });
-  };
+    
   useEffect(() => {
     getNewUsers();
   }, []);
@@ -110,23 +103,8 @@ function SignUpForm(props) {
   return (
     <FormStyle className="user-form" onSubmit={onSubmit}>
 
-      <div className="name-input-form">
-        <label htmlFor="name">
-          <h3>Name</h3>
-          <div className="name-input">
-            <input
-              type="text"
-              name="name"
-              maxLength="100"
-              value={signUpFromValues.name}
-              onChange={onSignUpChange}
-              placeholder="name"
-              size="40"
-            />
-          </div>
-        </label>
-      </div>
-      <br />
+      
+    
       <div className="username-input-form">
         <label htmlFor="username">
           {" "}
@@ -178,37 +156,13 @@ function SignUpForm(props) {
         </label>
       </div>
       <br />
-      <div className="birthdate-input-form">
-        <label htmlFor="birthdate">
-          <h3>Birth Date</h3>
-          <div className="birthdate-input">
-            <input
-              type="date"
-              name="birthdate"
-              onChange={onSignUpChange}
-              value={signUpFromValues.birthdate}
-              placeholder="mm/dd/yyyy"
-            />
-          </div>
-          <br />
-        </label>
-        <label htmlFor="term">
-          <h3>Terms of Service</h3>
-          <input
-            type="checkbox"
-            name='term'
-            checked={signUpFromValues.term}
-            onChange={onCheckChange}
-          />
-        </label>
-      </div>
-      <br />
+      
       <div className="error-container">
-        <div> {formErrors.name} </div>
+        
         <div> {formErrors.username} </div>
         <div> {formErrors.email} </div>
         <div> {formErrors.password} </div>
-        <div> {formErrors.term} </div>
+        
         <button disabled={disabled}>Sign Up!</button>
       </div>
       <br />

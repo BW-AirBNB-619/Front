@@ -1,35 +1,52 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import axiosWithAuth from "../utils/axiosWithAuth"
 
 const initialListing = {
-    location: '',
-    guests: '',
-    bedrooms: '',
-    stay: '',
+    
+    name: "",
+    bedrooms: 0,
+    neighbourhood: "",
+    roomtype: "",
+    minimumnights: 0,
+    numberofreviews: 0,
+    price: 0
 };
 
-const Listings = ({ listings, updateListings }) => {
+export const Listings = () => {
     const { push } = useHistory();
     const { id } = useParams();
 
-    console.log(listings);
+
     const [editing, setEditing] = useState(false);
     const [listingToEdit, setListingToEdit] = useState(initialListing);
     const [formData, setFormData] = useState([]);
+    const [Listing, setListing] = useState([]);
 
-    const editListing = listing => {
+    useEffect(() => {
+        axiosWithAuth()
+            .get("https://ww-foundation.herokuapp.com/users/user/8")
+            .then(res => {
+                console.log(res.data)
+                setListing(res.data.userprops)
+            })
+            .catch(err => console.log(err))
+    }, [])
+
+    console.log("-----> final", Listing)
+
+    const editListing = Listing => {
         setEditing(true);
-        setListingToEdit(listing);
+        setListingToEdit(Listing);
     };
 
-    console.log("listings ", listings);
+    
 
     const saveEdit = id => {
         axiosWithAuth()
             .put(`http://localhost:5000/${listingToEdit}`, listingToEdit)
             .then(res => {
-                updateListings(res.data)
+                setListing(res.data)
                 console.log("listing data ", res);
             })
             .catch(err => console.log(err));
@@ -41,10 +58,10 @@ const Listings = ({ listings, updateListings }) => {
             .then(res => {
                 console.log("delete data ", res)
                 const listingId = res.data
-                const newListings = listings.filter((listingSelected) => {
-                    return listingSelected.id !== listingId
+                const newListings = Listing.filter((ListingSelected) => {
+                    return ListingSelected.id !== listingId
                 });
-                updateListings(newListings)
+                setListing(newListings)
             })
 
     };
@@ -61,26 +78,27 @@ const Listings = ({ listings, updateListings }) => {
             .post("http://localhost:5000/", formData)
             .then(res => {
                 console.log(res)
-                updateListings(res.data)
+                setListing(res.data)
             })
             .catch(err => console.log(err))
     }
 
     return (
         <div className="listings">
+
             <p>Your AirBnB Listings</p>
             <ul>
-                {listings.map(listing => (
-                    <li key={listing.listing} onClick={() => editListing(listing)}>
+                {Listing.map(Listing => (
+                    <li key={Listing.propertyid} onClick={() => editListing(Listing)}>
                         <span>
                             <span className="delete" onClick={e => {
                                 e.stopPropagation();
-                                deleteListing(listing)
+                                deleteListing(Listing)
                             }
                             }>
                                 x
                         </span>{" "}
-                            {listing.listing}
+                            {Listing.name}
                         </span>
                     </li>
                 ))}
@@ -89,14 +107,15 @@ const Listings = ({ listings, updateListings }) => {
                 <form onSubmit={() => saveEdit(listingToEdit.id)}>
                     <legend>Edit Listing</legend>
                     <label>
-                        Listing Location:
+                        Name:
                     <input
                             onChange={e =>
-                                setListingToEdit({ ...listingToEdit, listing: e.target.value })
+                                setListingToEdit({ ...listingToEdit, name: e.target.value })
                             }
-                            value={listingToEdit.location}
+                            value={listingToEdit.name}
                         />
                     </label>
+                   
                     <label>
                         Bedrooms:
                     <input
@@ -104,6 +123,51 @@ const Listings = ({ listings, updateListings }) => {
                                 setListingToEdit({ ...listingToEdit, bedrooms: e.target.value })
                             }
                             value={listingToEdit.bedrooms}
+                        />
+                    </label>
+                    <label>
+                        Neighbourhood:
+                    <input
+                            onChange={e =>
+                                setListingToEdit({ ...listingToEdit, neighbourhood: e.target.value })
+                            }
+                            value={listingToEdit.neighbourhood}
+                        />
+                    </label>
+                    <label>
+                        RoomType:
+                    <input
+                            onChange={e =>
+                                setListingToEdit({ ...listingToEdit, roomtype: e.target.value })
+                            }
+                            value={listingToEdit.roomtype}
+                        />
+                    </label>
+                    <label>
+                        Minimum Nights:
+                    <input
+                            onChange={e =>
+                                setListingToEdit({ ...listingToEdit, minimumnights: e.target.value })
+                            }
+                            value={listingToEdit.minimumnights}
+                        />
+                    </label>
+                    <label>
+                        Number of reviews:
+                    <input
+                            onChange={e =>
+                                setListingToEdit({ ...listingToEdit, numberofreviews: e.target.value })
+                            }
+                            value={listingToEdit.numberofreviews}
+                        />
+                    </label>
+                    <label>
+                        Price:
+                    <input
+                            onChange={e =>
+                                setListingToEdit({ ...listingToEdit, price: e.target.value })
+                            }
+                            value={listingToEdit.price}
                         />
                     </label>
                     <div className="button-row">
@@ -142,4 +206,11 @@ const Listings = ({ listings, updateListings }) => {
     )
 }
 
-export default Listings;
+// propertyid: "",
+//     name: "",
+//     bedrooms: '',
+//     neighbourhood: "",
+//     roomtype: "",
+//     minimumnights: "",
+//     numberofreviews: "",
+//     price: ""

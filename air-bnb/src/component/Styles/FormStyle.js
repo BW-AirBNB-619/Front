@@ -15,7 +15,7 @@ const FormStyle = styled(motion.form)`
   box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.45);
   border-radius: 10px;
   border: 1px solid ${(props) => props.theme.colors.darkGreen};
-  padding: 5% 0;
+  text-align: center;
   line-height: 1.8;
   font-size: ${(props) => props.theme.fontSizes.small};
   box-sizing: border-box;

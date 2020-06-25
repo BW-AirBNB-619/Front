@@ -18,6 +18,7 @@ const ListingStyle = styled.div`
   justify-content: center;
   min-width: 550px;
   max-width: 7500px;
+  text-align: center;
 
   .listing-span {
     h4 {

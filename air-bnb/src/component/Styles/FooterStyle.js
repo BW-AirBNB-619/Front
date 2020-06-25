@@ -8,9 +8,12 @@ const Footer = styled.header`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  
 
- background-image: linear-gradient(138deg, rgba(228,253,225,1) 13%, rgba(2,128,144,1) 59%);
+  background-image: linear-gradient(
+    138deg,
+    rgba(228, 253, 225, 1) 13%,
+    rgba(2, 128, 144, 1) 59%
+  );
 
   .footerNav {
     width: 98%;
@@ -38,6 +41,6 @@ const Footer = styled.header`
       text-decoration: none;
       text-shadow: 0px 0px 5px ${(props) => props.theme.colors.darkGreen};
     }
+  }
 `;
-
 export default Footer;

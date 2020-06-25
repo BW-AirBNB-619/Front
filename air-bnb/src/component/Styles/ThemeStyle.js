@@ -12,7 +12,7 @@ export default {
     titleTwo: "3.2rem",
     titleThree: "2.4rem",
     body: "2.0rem",
-    small: "1.0rem",
+    small: "1.6rem",
   },
   fonts: {
     body: "'Roboto', sans-serif",

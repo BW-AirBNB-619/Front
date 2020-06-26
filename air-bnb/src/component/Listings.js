@@ -17,7 +17,7 @@ const initialListing = {
 
 export const Listings = () => {
   const { push } = useHistory();
-  const { id } = useParams();
+  const { propertyid } = useParams();
 
   const [editing, setEditing] = useState(false);
   const [listingToEdit, setListingToEdit] = useState(initialListing);
@@ -41,9 +41,9 @@ export const Listings = () => {
     setListingToEdit(Listing);
   };
 
-  const saveEdit = (id) => {
+  const saveEdit = (propertyid) => {
     axiosWithAuth()
-      .patch(`https://ww-foundation.herokuapp.com/properties/property/67`, listingToEdit)
+      .patch(`https://ww-foundation.herokuapp.com/properties/property/${listingToEdit.propertyid}`, listingToEdit)
       .then((res) => {
         setListing(res.data);
         console.log("listing data ", res);
@@ -51,14 +51,14 @@ export const Listings = () => {
       .catch((err) => console.log(err));
   };
 
-  const deleteListing = (listing) => {
+  const deleteListing = (Listing) => {
     axiosWithAuth()
-      .delete("https://ww-foundation.herokuapp.com/properties/property/67")
+      .delete(`https://ww-foundation.herokuapp.com/properties/property/${Listing.propertyid}`)
       .then((res) => {
         console.log("delete data ", res);
         const listingId = res.data;
         const newListings = Listing.filter((ListingSelected) => {
-          return ListingSelected.id !== listingId;
+          return ListingSelected.propertyid !== listingId;
         });
         setListing(newListings);
       });
@@ -106,7 +106,7 @@ export const Listings = () => {
       {editing && (
         <form
           className="listing-details"
-          onSubmit={() => saveEdit(listingToEdit.id)}
+          onSubmit={() => saveEdit(listingToEdit.propertyid)}
         >
           <legend>Edit Listing</legend>
           <label>

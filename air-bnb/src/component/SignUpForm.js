@@ -5,32 +5,24 @@ import axiosWithAuth from "../utils/axiosWithAuth";
 import formSchema from "../validate/formSchema";
 import * as Yup from "yup";
 
-
 const initialSignUpForm = {
-  
   username: "",
   email: "",
   password: "",
-  
 };
 
 const initialErrors = {
-  
   username: "",
   email: "",
   password: "",
-  
 };
 const initialDisabled = true;
 
-
 function SignUpForm(props) {
-
   const [users, setUsers] = useState([]);
   const [signUpFromValues, setSignUpFormValues] = useState(initialSignUpForm);
   const [formErrors, setFormErrors] = useState(initialErrors);
   const [disabled, setDisabled] = useState(initialDisabled);
-
 
   const getNewUsers = () => {
     axiosWithAuth()
@@ -48,11 +40,11 @@ function SignUpForm(props) {
       .post("", newUsers)
       .then((res) => {
         console.log(res.data);
-        setUsers([...users, res.data])
+        setUsers([...users, res.data]);
         window.localStorage.setItem("token", res.data.token);
         props.history.push("/dashboard");
       })
-      .catch((err) => { })
+      .catch((err) => {})
       .finally(() => {
         setSignUpFormValues(initialSignUpForm);
       });
@@ -87,9 +79,6 @@ function SignUpForm(props) {
     postNewUsers(newUsers);
   };
 
-  
-
-    
   useEffect(() => {
     getNewUsers();
   }, []);
@@ -102,9 +91,6 @@ function SignUpForm(props) {
 
   return (
     <FormStyle className="user-form" onSubmit={onSubmit}>
-
-      
-    
       <div className="username-input-form">
         <label htmlFor="username">
           {" "}
@@ -156,20 +142,16 @@ function SignUpForm(props) {
         </label>
       </div>
       <br />
-      
+
       <div className="error-container">
-        
         <div> {formErrors.username} </div>
         <div> {formErrors.email} </div>
         <div> {formErrors.password} </div>
-        
+
         <button disabled={disabled}>Sign Up!</button>
       </div>
       <br />
-      <Link to="/log-in">
-        Already have an account? Click here to sign in!
-        </Link>
-
+      <Link to="/sign-in">Already have an account? Click here to sign in!</Link>
     </FormStyle>
   );
 }

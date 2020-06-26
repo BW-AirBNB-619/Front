@@ -43,7 +43,10 @@ export const Listings = () => {
 
   const saveEdit = (propertyid) => {
     axiosWithAuth()
-      .patch(`https://ww-foundation.herokuapp.com/properties/property/${listingToEdit.propertyid}`, listingToEdit)
+      .patch(
+        `https://ww-foundation.herokuapp.com/properties/property/${listingToEdit.propertyid}`,
+        listingToEdit
+      )
       .then((res) => {
         setListing(res.data);
         console.log("listing data ", res);
@@ -53,7 +56,9 @@ export const Listings = () => {
 
   const deleteListing = (Listing) => {
     axiosWithAuth()
-      .delete(`https://ww-foundation.herokuapp.com/properties/property/${Listing.propertyid}`)
+      .delete(
+        `https://ww-foundation.herokuapp.com/properties/property/${Listing.propertyid}`
+      )
       .then((res) => {
         console.log("delete data ", res);
         const listingId = res.data;
@@ -74,7 +79,10 @@ export const Listings = () => {
   const addListing = (evt) => {
     evt.preventDefault();
     axiosWithAuth()
-      .post("https://ww-foundation.herokuapp.com/properties/user/8/property", formData)
+      .post(
+        "https://ww-foundation.herokuapp.com/properties/user/8/property",
+        formData
+      )
       .then((res) => {
         console.log(res);
         setListing(res.data);
@@ -84,21 +92,26 @@ export const Listings = () => {
 
   return (
     <ListingStyle className="listings">
-      <h3>Your AirBnB Listings</h3>
-      <h4>Click listing to edit</h4>
+      <div className="titles-div">
+        <h3>Your AirBnB Listings</h3>
+        <h4>Click listing name to edit</h4>
+      </div>
+
       <ul>
         {Listing.map((Listing) => (
           <li key={Listing.propertyid} onClick={() => editListing(Listing)}>
             <span className="listing-span">
-            <h4>{Listing.name}</h4>
+              <h4>{Listing.name}</h4>
               <span
                 className="delete"
                 onClick={(e) => {
                   e.stopPropagation();
                   deleteListing(Listing);
                 }}
-              > x </span>{" "}
-              
+              >
+                {" "}
+                x{" "}
+              </span>{" "}
             </span>
           </li>
         ))}
@@ -109,6 +122,7 @@ export const Listings = () => {
           onSubmit={() => saveEdit(listingToEdit.propertyid)}
         >
           <legend>Edit Listing</legend>
+          <br />
           <label>
             Name:
             <input
@@ -191,58 +205,58 @@ export const Listings = () => {
       )}
       <br />
       <FormStyle onSubmit={addListing}>
-      <legend>New Listing</legend>
-                <input
-                    name="name"
-                    type="text"
-                    value={formData.name}
-                    onChange={handleChanges}
-                    placeholder="Name"
-                />
-                
-                <input
-                    name="bedrooms"
-                    type="number"
-                    value={formData.bedrooms}
-                    onChange={handleChanges}
-                    placeholder="Bedrooms"
-                />
-                <input
-                    name="neighbourhood"
-                    type="text"
-                    value={formData.neighbourhood}
-                    onChange={handleChanges}
-                    placeholder="Neighbourhood"
-                />
-                <input
-                    name="roomtype"
-                    type="text"
-                    value={formData.roomtype}
-                    onChange={handleChanges}
-                    placeholder="Room Type"
-                />
-                <input
-                    name="minimumnights"
-                    type="number"
-                    value={formData.minimumnights}
-                    onChange={handleChanges}
-                    placeholder="Minimum Nights"
-                />
-                <input
-                    name="numberofreviews"
-                    type="number"
-                    value={formData.numberofreviews}
-                    onChange={handleChanges}
-                    placeholder="Number of reviews"
-                />
-                <input
-                    name="price"
-                    type="number"
-                    value={formData.price}
-                    onChange={handleChanges}
-                    placeholder="Price"
-                />
-        <button>New Listing</button>
+        <legend>Add New Listing</legend>
+        <input
+          name="name"
+          type="text"
+          value={formData.name}
+          onChange={handleChanges}
+          placeholder="Name"
+        />
+
+        <input
+          name="bedrooms"
+          type="number"
+          value={formData.bedrooms}
+          onChange={handleChanges}
+          placeholder="Bedrooms"
+        />
+        <input
+          name="neighbourhood"
+          type="text"
+          value={formData.neighbourhood}
+          onChange={handleChanges}
+          placeholder="Neighbourhood"
+        />
+        <input
+          name="roomtype"
+          type="text"
+          value={formData.roomtype}
+          onChange={handleChanges}
+          placeholder="Room Type"
+        />
+        <input
+          name="minimumnights"
+          type="number"
+          value={formData.minimumnights}
+          onChange={handleChanges}
+          placeholder="Minimum Nights"
+        />
+        <input
+          name="numberofreviews"
+          type="number"
+          value={formData.numberofreviews}
+          onChange={handleChanges}
+          placeholder="Number of reviews"
+        />
+        <input
+          name="price"
+          type="number"
+          value={formData.price}
+          onChange={handleChanges}
+          placeholder="Price"
+        />
+        <button>Add Listing</button>
       </FormStyle>
     </ListingStyle>
   );

@@ -43,6 +43,12 @@ const FormStyle = styled(motion.form)`
     text-align: center;
   }
 
+  legend {
+    margin: 50px;
+    font-size: ${(props) => props.theme.fontSizes.titleThree};
+    color: ${(props) => props.theme.colors.darkGreen};
+  }
+
   button {
     font-size: ${(props) => props.theme.fontSizes.body};
     color: ${(props) => props.theme.colors.medGreen};
@@ -59,7 +65,6 @@ const FormStyle = styled(motion.form)`
       transform: scale(1.1);
       color: ${(props) => props.theme.colors.white};
       background-color: ${(props) => props.theme.colors.medGreen};
-      border: 1px solid ${(props) => props.theme.colors.white};
       text-shadow: 0px 0px 0px ${(props) => props.theme.colors.white};
       box-shadow: 0px 0px 2px ${(props) => props.theme.colors.darkGreen};
     }

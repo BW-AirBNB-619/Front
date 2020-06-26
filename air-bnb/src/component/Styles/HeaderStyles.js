@@ -9,13 +9,12 @@ const Header = styled.header`
   flex-direction: column;
   justify-content: center;
 
-
   background-image: linear-gradient(
     135deg,
     rgba(2, 128, 144, 1) 36%,
     rgba(228, 253, 225, 1) 100%
   );
-    
+
   .headerNav {
     width: 98%;
     max-width: 1200px;
@@ -25,28 +24,29 @@ const Header = styled.header`
     align-content: center;
     justify-content: space-between;
 
+    a {
+      text-decoration: none;
+    }
+
     @media (max-width: 500px) {
       width: 100%;
       display: flex;
       flex-wrap: wrap;
-      h1{
-  
+      h1 {
         font-size: 2rem;
         text-align: center;
         margin: 2% 12.5% 2% 12.5%;
         padding: 05 5%;
-        
       }
-      .link-contain{
-        width:100%;
-       a{
-         width: 100%;
-         font-size: 1.5rem;
-         text-align: center;
-       }
+      .link-contain {
+        width: 100%;
+        a {
+          width: 100%;
+          font-size: 1.5rem;
+          text-align: center;
+        }
       }
     }
-   
   }
 
   h1 {

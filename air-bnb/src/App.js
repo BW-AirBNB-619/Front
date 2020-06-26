@@ -22,8 +22,7 @@ function App() {
           <Route
             path="/marketing"
             component={() => {
-              window.location.href =
-                "https://https://bw-airbnb-619.netlify.app/";
+              window.location.href = "https://bw-airbnb-619.netlify.app/";
               return null;
             }}
             target="_blank"

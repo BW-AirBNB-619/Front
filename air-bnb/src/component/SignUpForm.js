@@ -102,7 +102,7 @@ function SignUpForm(props) {
               value={signUpFromValues.username}
               onChange={onSignUpChange}
               placeholder="username"
-              size="40"
+              size="34"
             />
           </div>
         </label>
@@ -120,7 +120,7 @@ function SignUpForm(props) {
               value={signUpFromValues.email}
               onChange={onSignUpChange}
               placeholder="example@example.com"
-              size="40"
+              size="34"
             />
           </div>
         </label>
@@ -136,7 +136,7 @@ function SignUpForm(props) {
               value={signUpFromValues.password}
               onChange={onSignUpChange}
               placeholder="Password"
-              size="40"
+              size="34"
             />
           </div>
         </label>

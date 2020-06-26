@@ -15,6 +15,9 @@ const Footer = styled.header`
     rgba(2, 128, 144, 1) 59%
   );
 
+  
+    
+  }
   .footerNav {
     width: 98%;
     max-width: 1200px;
@@ -31,7 +34,7 @@ const Footer = styled.header`
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 35%;
+    width: 50%;
     margin: auto;
 
     a {
@@ -42,5 +45,10 @@ const Footer = styled.header`
       text-shadow: 0px 0px 5px ${(props) => props.theme.colors.darkGreen};
     }
   }
+  @media (max-width: 500px){
+    width: 100%;
+    .link-contain{
+      width: 100%;
+    }
 `;
 export default Footer;

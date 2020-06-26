@@ -2,9 +2,10 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 
 const FormStyle = styled(motion.form)`
-  width:100%;
+  width: 100%;
   min-width: 60%;
   min-height: 250px;
+  max-width: 650px;
   margin: auto;
   padding: 10%;
   display: flex;
@@ -20,6 +21,7 @@ const FormStyle = styled(motion.form)`
   line-height: 1.8;
   font-size: ${(props) => props.theme.fontSizes.small};
   box-sizing: border-box;
+
   form {
     display: flex;
     flex-direction: column;
@@ -27,7 +29,7 @@ const FormStyle = styled(motion.form)`
     text-align: center;
     margin: auto;
   }
- 
+
   h3 {
     font-size: ${(props) => props.theme.fontSizes.body};
     color: ${(props) => props.theme.colors.darkGreen};
@@ -79,7 +81,7 @@ const FormStyle = styled(motion.form)`
     font-size: ${(props) => props.theme.fontSizes.titleThree};
     color: ${(props) => props.theme.colors.red};
   }
-   @media (max-width: 500px){
+  @media (max-width: 500px) {
     h3 {
       font-size: 1.8rem;
     }
@@ -87,6 +89,5 @@ const FormStyle = styled(motion.form)`
       font-size: 1.8rem;
     }
   }
-
 `;
 export default FormStyle;

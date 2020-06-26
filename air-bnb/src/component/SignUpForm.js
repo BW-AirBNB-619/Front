@@ -26,7 +26,7 @@ function SignUpForm(props) {
 
   const getNewUsers = () => {
     axiosWithAuth()
-      .get("")
+      .get("https://ww-foundation.herokuapp.com/")
       .then((res) => {
         setUsers(res.data);
       })
@@ -37,7 +37,7 @@ function SignUpForm(props) {
 
   const postNewUsers = (newUsers) => {
     axiosWithAuth()
-      .post("", newUsers)
+      .post(" https://ww-foundation.herokuapp.com/createnewuser", newUsers)
       .then((res) => {
         console.log(res.data);
         setUsers([...users, res.data]);

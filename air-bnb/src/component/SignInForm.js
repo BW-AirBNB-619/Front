@@ -89,7 +89,7 @@ return (
             value={formValues.username}
             onChange={onInputChange}
             placeholder="username"
-            size="40"
+            size="34"
           />
         </div>
       </label>
@@ -105,7 +105,7 @@ return (
             value={formValues.password}
             onChange={onInputChange}
             placeholder="Password"
-            size="40"
+            size="34"
           />
         </div>
       </label>
